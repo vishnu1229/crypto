@@ -1,0 +1,137 @@
+.home_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.top_bar {
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    height: 12% !important;
+    display: flex;  
+    flex-direction: row;
+    justify-content: space-evenly !important;
+    align-items: stretch;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.334);
+    background-color: rgb(200, 0, 255);
+}
+
+.entry_area {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.entry_areas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.label {
+    font-size: large;
+    padding-left: 1rem;
+    padding-right: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.entry {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 20px;
+    vertical-align:middle;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    border: 2px solid grey !important;
+    border-radius: 6px;
+}
+
+.button_submit {
+    background-color: rgba(128, 128, 128, 0.29) !important;
+    height: 50%;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    margin-top: 1.45% !important;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center !important;
+    vertical-align: middle !important;
+    
+    margin-top: 5% !important;
+    width: 97%;
+    height: 100% !important;
+}
+
+.prediction_container {
+    height: 100%;
+    width: 350px;
+}
+
+.prediction_area {
+    width: 100% !important;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.prediction {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.header_logo {
+    border-radius: 300px;
+    width: 20px;
+    background-color: rgba(255, 225, 1, 0.847);
+    margin: 1%;
+    padding: 1%;
+    left: 5% !important;
+     padding: 0px 30px 0 1px; 
+    text-align: center;
+
+
+}
+
+.header_logo:hover {
+    animation: spin-animation 0.7s infinite;
+}
+
+.loading {
+    top: 45%;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: absolute;
+}
+
+.error {
+    position: absolute;
+    top: 45%;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+@keyframes spin-animation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
