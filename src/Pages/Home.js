@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import Header from '../Components/Header';
+
 import '../Styles/Home.css';
-import { Button, TextField } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
 import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import images from "../assets/index"
 
 const Home = () => {
   const navigate = useNavigate();
@@ -17,9 +17,9 @@ const Home = () => {
   const [loading,setLoading] = useState(false);
   const [prediction,setPrediction] = useState(null);
   const [error,setError] = useState(false);
-  const [coinname, setCoinName] = useState('');
   const [pdata,setPdata] = useState([]);
   const [predictedValue,setPredictedValue] = useState(0);
+  const [coinname, setCoinName] = useState('');
 
   var p_data = []
 
@@ -27,6 +27,18 @@ const Home = () => {
     "coin_symbol":coin,
     "in_currency":currency
   });
+  const handleHistoryData = () => {
+    navigate('/history');
+  }
+  const handleInputChange = (event) => {
+    setCoinName(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    navigate(`/history/${coinname}`);
+  };
+
 
   const submitClicked = () => {
     setLoading(true);
@@ -68,98 +80,87 @@ const Home = () => {
     }
     
   },[loading,error,prediction,predictedValue]);
-  const handleHistoryData = () => {
-    navigate('/history');
+  const renderChart = () => {
+    if (prediction != null) {
+      return (
+   
+        <div className="chart-bg">
+        <ResponsiveContainer className='prediction_container' aspect={3} width="100%" height={400}>
+          <LineChart data={pdata}>
+            <CartesianGrid />
+            <XAxis dataKey="Time" interval={'preserveStartEnd'} />
+            <YAxis>Value</YAxis>
+            <Legend />
+            <Tooltip />
+            <Line dataKey="High" stroke="red" dot={{ r: 4 }} activeDot={{ r: 8 }} strokeWidth="3" />
+            <Line dataKey="Low" stroke="blue" dot={{ r: 4 }} activeDot={{ r: 8 }} strokeWidth="3" />
+            <Line dataKey="Open" stroke="green" dot={{ r: 4 }} activeDot={{ r: 8 }} strokeWidth="3" />
+            <Line dataKey="Close" stroke="grey" dot={{ r: 4 }} activeDot={{ r: 8 }} strokeWidth="3" />
+          </LineChart>
+        </ResponsiveContainer>
+        </div>
+      
+      );
+    }
+    return null;
   }
-  const handleInputChange = (event) => {
-    setCoinName(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    navigate(`/history/${coinname}`);
-  };
-
-  
 
   return (
-    <div>
-        {/* <Header/> */}
-        <div className='home_content'>
-            <div className='top_bar'>
+    <>
+      <div className='topNavbar'>
+        <div className='logo'>
+          <img src={images.logo} alt="Logo" />
+        </div>
+        <div className='logoname'>CRYPTO-PREDICT</div>
+        
 
-                <div className='header_logo' style={{fontSize:15,display:'flex',alignItems:'center',border:'6px solid black'}}>Crypto</div>
-
-                <div className='entry_area'>
-                    <h3 className='label'>Coin Symbol: </h3>
-                    <TextField
-                        type='string'
-                        value={coin}
-                        onChange={(e) => setCoin(e.target.value)}
-                        className='entry'
-                        InputProps={{ disableUnderline: true }}
-                    />
-                </div>
-                <div className='entry_area'>
-                    <h3 className='label'>Currency Symbol: </h3>
-                    <TextField
-                        type='string'
-                        value={currency}
-                        onChange={(e) => setCurrency(e.target.value)}
-                        className='entry'
-                        InputProps={{ disableUnderline: true }}
-                    />
-                </div>
-                <form onSubmit={handleSubmit} className='entry_areas'>
-            <div className='entry_area'>
-          <h3 className='label'>Coin name: </h3>
+        <div className='hitxt'>Hi, Welcome</div>
+      
+      </div>
+      <div className='line'></div>
+      <div className='box'>
+        <div className='innerbox'>
+          <div>Coin Symbol:</div>
           <TextField
-            type='string'
-            value={coinname}
-            onChange={handleInputChange}
-            className='entry'
-            InputProps={{ disableUnderline: true }}
+            type="text"
+            value={coin}
+            onChange={(e) => setCoin(e.target.value)}
+            className='inputfield'
           />
         </div>
-        <Button type='filled' className='button_submit' onClick={handleSubmit}>
-          History Data
-        </Button>
-      </form>
-
-               
-                <Button type='filled' className='button_submit' onClick={() => submitClicked()}>Predict</Button>
-
-            </div>
-
-            <div className='body'>
-                {!error && !loading && prediction && <div className='prediction_area'>
-                    <h1 className='prediction_title'>Crypto-Stock Prediction</h1>
-                    <ResponsiveContainer className='prediction_container' aspect={3} width="75%" height={400}>
-                        <LineChart data={pdata}>
-                        <CartesianGrid/>
-                        <XAxis dataKey='Time' interval={'preserveStartEnd'} />
-                        <YAxis>Value</YAxis>
-                        <Legend/>
-                        <Tooltip/>
-                        <Line dataKey="High" stroke='red' dot={{r:4}} activeDot={{ r: 8 }} strokeWidth="3"/>
-                        <Line dataKey="Low" stroke='blue' dot={{r:4}} activeDot={{ r: 8 }} strokeWidth="3"/>
-                        <Line dataKey="Open" stroke='green' dot={{r:4}} activeDot={{ r: 8 }} strokeWidth="3"/>
-                        <Line dataKey="Close" stroke='grey' dot={{r:4}} activeDot={{ r: 8 }} strokeWidth="3"/>
-                        </LineChart>
-                    </ResponsiveContainer>
-                    <div className='prediction'>
-                        <h3>Next Predicted Value : </h3>
-                        <h3 style={{paddingLeft:"1rem"}}>{predictedValue}</h3>
-                    </div>
-                </div>}
-            </div>
-            
-
-            {loading && <h3 className='loading'>Loading....</h3>}
-            {error && <h3 className='error'>Some Error has occured....</h3>}
+        <div className='innerbox'>
+          <div>Currency Symbol:</div>
+          <TextField
+            type="text"
+            value={currency}
+            onChange={(e) => setCurrency(e.target.value)}
+            className='inputfield'
+          />
         </div>
-    </div>
-  )
+        <div className='innerbox'>
+          <div>Coin Name:</div>
+          <TextField
+            type='text'
+            value={coinname}
+            onChange={handleInputChange}
+            className='inputfield'
+            
+          />
+        </div>
+        <div className='innerbox'>
+          <div>
+            <button 
+onClick={submitClicked} className='btn' >Predict </button>
+<button  className='btnp' onClick={handleSubmit}>See Past Prediction</button>
+
+</div>
+</div>
+</div>
+{loading && <h3>Loading....</h3>}
+{error && <h3>Some Error has occurred....</h3>}
+{renderChart()}
+</>
+)
 }
 
-export default Home
+export default Home;

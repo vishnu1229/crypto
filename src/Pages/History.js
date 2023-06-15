@@ -60,9 +60,14 @@ const History = () => {
   }
 
   return (
-    <div>
+    <>
+    <div className="h_container">
+
+    <div className="graph_cc">
       <Line options={options} data={data} />
     </div>
+    </div>
+    </>
   )
 }
 

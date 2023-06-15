@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Flat&family=Poppins:ital,wght@1,600&display=swap');
+
 .App {
   display: flex;
   flex-direction: row;
@@ -59,7 +61,6 @@
   align-items: center;
   justify-content: center !important;
   vertical-align: middle !important;
-  
   margin-top: 5% !important;
   width: 97%;
   height: 100% !important;
@@ -82,4 +83,121 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+.body{
+  background-color: black;
+}
+
+
+.topNavbar{
+  display: flex;
+  background-color: black;
+align-items: center;
+  color: white;
+  gap: 30px;
+}
+.logo{
+  width: 126px;
+height: 135px;
+margin-left:30px;
+margin-top: 27px;
+}
+
+.logoname{
+height: 42px;
+font-weight: 400;
+font-size: 36px;
+line-height: 43px;
+}
+
+.line{
+
+height: 0px;
+
+border: 1px solid #FFFFFF;
+transform: rotate(0.08deg);
+}
+
+.box{
+  position: absolute;
+width: 305px;
+height: 500px;
+right: 46.5px;
+top: 206.5px;
+display: flex;
+
+flex-direction: column;
+background: #BEFF04;
+border-radius: 50px;
+
+}
+.innerbox{
+  margin-top: 35px;
+  margin-left: 50px;
+}
+.btn{
+  width: 169px;
+height: 63px;
+background-color: black;
+border-radius: 50px;
+color: white;
+font-family: 'Nova Flat';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 39px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 30px;
+margin-top: -41px;
+}
+.btnp{
+  margin-top: 23px;
+  margin-left: 55px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.inputfield{
+  box-sizing: border-box;
+
+width: 219px;
+height: 60px;
+
+
+border: 1px solid #000000;
+background-color: transparent;
+}
+
+.chart-bg{
+  background-color: white;
+  width: 1120px;
+  height: 420px;
+  margin-top: 50px;
+}
+.graph_cc{
+
+
+  width: 1100px;
+  height: 720px;
+display: flex;
+justify-content: center;
+flex-direction: column;
+
+}
+.h_container{
+  display: flex;
+  justify-content: center;
+
+
+  background-color: white;
+
+}
+.hitxt{
+position: absolute;
+right : 60px;
+font-weight: 400;
+font-size: 36px;
+line-height: 43px;
 }
