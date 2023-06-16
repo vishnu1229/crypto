@@ -134,7 +134,7 @@ border-radius: 50px;
 
 }
 .innerbox{
-  margin-top: 35px;
+  margin-top: 45px;
   margin-left: 50px;
 }
 .btn{
@@ -157,10 +157,13 @@ margin-top: -41px;
 }
 .btnp{
   margin-top: 23px;
-  margin-left: 55px;
+  margin-left: 47px;
   background-color: transparent;
   border: none;
   cursor: pointer;
+  font-family: 'Nova Flat';
+  font-style: normal;
+  
 }
 .inputfield{
   box-sizing: border-box;
@@ -178,6 +181,8 @@ background-color: transparent;
   width: 1120px;
   height: 420px;
   margin-top: 50px;
+  margin-left: 30px;
+  padding-top: 30px;
 }
 .graph_cc{
 
