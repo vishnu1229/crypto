@@ -83,7 +83,7 @@ const Home = () => {
   const renderChart = () => {
     if (prediction != null) {
       return (
-   
+   <>
         <div className="chart-bg">
         <ResponsiveContainer className='prediction_container' aspect={3} width="100%" height={400}>
           <LineChart data={pdata}>
@@ -98,7 +98,13 @@ const Home = () => {
             <Line dataKey="Close" stroke="grey" dot={{ r: 4 }} activeDot={{ r: 8 }} strokeWidth="3" />
           </LineChart>
         </ResponsiveContainer>
+     
         </div>
+           <div className='prediction'>
+           <h3>Next Predicted Value : </h3>
+           <h3 style={{paddingLeft:"1rem"}}>{predictedValue}</h3>
+       </div>
+       </>
       
       );
     }
@@ -120,7 +126,7 @@ const Home = () => {
       <div className='line'></div>
       <div className='box'>
         <div className='innerbox'>
-          <div>Coin Symbol:</div>
+          <div className='clrtxt'>Coin Symbol:</div>
           <TextField
             type="text"
             value={coin}
@@ -129,7 +135,7 @@ const Home = () => {
           />
         </div>
         <div className='innerbox'>
-          <div>Currency Symbol:</div>
+          <div  className='clrtxt'>Currency Symbol:</div>
           <TextField
             type="text"
             value={currency}
@@ -138,7 +144,7 @@ const Home = () => {
           />
         </div>
         <div className='innerbox'>
-          <div>Coin Name:</div>
+          <div  className='clrtxt'>Coin Name:</div>
           <TextField
             type='text'
             value={coinname}

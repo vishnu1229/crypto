@@ -88,7 +88,9 @@
   background-color: black;
 }
 
-
+.clrtxt{
+  color: black;
+}
 .topNavbar{
   display: flex;
   background-color: black;
@@ -136,15 +138,16 @@ border-radius: 50px;
   margin-left: 50px;
 }
 .btn{
-  width: 169px;
-height: 63px;
+  
+width: 169px;
+height: 43px;
 background-color: black;
 border-radius: 50px;
 color: white;
 font-family: 'Nova Flat';
 font-style: normal;
 font-weight: 400;
-font-size: 32px;
+font-size: 22px;
 line-height: 39px;
 display: flex;
 justify-content: center;
@@ -180,10 +183,11 @@ background-color: transparent;
 
 
   width: 1100px;
-  height: 720px;
+  height: 100vh;
 display: flex;
 justify-content: center;
 flex-direction: column;
+background-color: white;
 
 }
 .h_container{
@@ -191,7 +195,6 @@ flex-direction: column;
   justify-content: center;
 
 
-  background-color: white;
 
 }
 .hitxt{
